@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">TransportesUTN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Agente Viajero</h1>
+            {% csrf_token %}
+            <p>Seleccione las ciudades que NO participarán del recorrido </p>
+        </div>
+    </div>
+    <form method="POST" action="result/">
+    <div class="container">
+        <!-- Example row of columns -->
+        {% csrf_token %}
+        <div class="row">
+        {% for city1 in cities1 %}
+            <div class="col-md-2">
+                <li><input type="checkbox" name="city" value="{{city1}}" /> {{city1}}<br/></li>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="row">
+        {% for city2 in cities2 %}
+            <div class="col-md-2">
+                <li><input type="checkbox" name="city" value="{{city2}}" /> {{city2}}<br/></li>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="row">
+        {% for city3 in cities3 %}
+            <div class="col-md-2">
+                <li><input type="checkbox" name="city" value="{{city3}}" /> {{city3}}<br/></li>
+            </div>
+        {% endfor %}
+        </div>
+        <hr>
+     <!-- /container -->
+    <div class="row">
+        <button type="submit" value="Submit"> Resultado Agente Viajero </button>
+    </div>
+    </div>
+    </form>
+
+</main>
+
+<footer class="container">
+    <p>&copy; Investigación Operativa II. TUSI. 2020</p>
+</footer>
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Problema del Agente Viajero</title>
+    {% csrf_token %}
+</head>
+<body>
+    <h1>Seleccione las ciudades que NO participarán del recorrido</h1>
+    <form method="POST" action="result/">
+        <ul>
+        {% csrf_token %}
+        {% for city in cities %}
+            <li><input type="checkbox" name="city" value="{{city}}" /> {{city}}<br/></li>
+        {% endfor %}
+        </ul>
+        <button type="submit" value="Submit"> Resultado Agente Viajero </button>
+    </form>
+    <br>
+    <a>Resultado Camino Económico</a>
+</body>
+</html>

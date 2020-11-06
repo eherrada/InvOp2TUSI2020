@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">TransportesUTN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">TransportesUTN</h1>
+            <h5>Este sistema fue desarrollado para aplicar la teoría de redes, frente a los escenarios de Agente Viajero y Camino Económico </h5>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Agente Viajero</h2>
+                <p>El problema del agente viajero, (TSP) como los demás de redes, introduce un conjunto de nodos y
+                    arcos que conectan todos los nodos. La finalidad es encontrar la forma de realizar una gira
+                    completa que conecte todos los nodos visitando sólo una vez cada nodo y minimizar o maximizar
+                    la distancia de la gira total. </p>
+                <p><a class="btn btn-secondary" href="tsp.html" role="button">Comenzar &raquo;</a></p>
+            </div>
+            <div class="col-md-6">
+                <h2>Camino Económico</h2>
+                <p>Se utiliza para encontrar una ruta o camino óptimo entre un nodo fuente y un nodo destino, los
+                    cuales están enlazados a través de una red con arcos que poseen un cierto atributo, el cual puede
+                    ser costo, distancia, tiempo, etc.</p>
+                <br>
+                <p><a class="btn btn-secondary" href="#" role="button">Comenzar &raquo;</a></p>
+            </div>
+        </div>
+
+        <hr>
+
+    </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+    <p>&copy; Investigación Operativa II. TUSI. 2020</p>
+</footer>
+{% endblock %}

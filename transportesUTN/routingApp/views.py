@@ -6,21 +6,28 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import cities_form
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'services.html')
 
 def tsp(request):
-    cities1 = {'Chascomus', 'Samborombón ', 'Castelli', 'Tandil', 'Balcarce', 'Maipú'}
-    cities2 = {'Mar del Plata', 'Coronel Vidal', 'Miramar', 'Pinamar', 'Azul', 'Dolores'}
-    cities3 = {'General Guido', 'Lobería'}
+    return render(request, 'tsp.html')
 
-    return render(request, 'tsp.html', {'cities1': cities1, 'cities2': cities2, 'cities3': cities3})
+def shortest_path(request):
+    return render(request, 'shortest_path.html')
+
+def our_team(request):
+    return render(request, 'our_team.html')
+
+def about_us(request):
+    return render(request, 'about_us.html')
+
+
 @csrf_exempt
 def travlingSales(request):
     """Entry point of the program."""
     # Instantiate the data problem.
     data = create_data_model()
 
-    city_index = ['Chascomus', 'Samborombón ', 'Castelli', 'Tandil', 'Balcarce', 'Maipú', 'Mar del Plata',
+    city_index = ['Chascomus', 'Samborombón', 'Castelli', 'Tandil', 'Balcarce', 'Maipú', 'Mar del Plata',
                 'Coronel Vidal', 'Miramar', 'Pinamar', 'Azul', 'Dolores', 'General Guido', 'Lobería']
     city_list_index = []
 
@@ -65,7 +72,7 @@ def travlingSales(request):
     # Print solution on console.
     if solution:
         resultado = print_solution(manager, routing, solution, city_array)
-        return render(request, 'result.html', {'resultado': resultado, 'matriz': data['distance_matrix'],
+        return render(request, 'results.html', {'resultado': resultado, 'matriz': data['distance_matrix'],
                                                'ciudades': city_array})
 
 def create_data_model():

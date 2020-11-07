@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 {% load static %} 
 {% block content %}
-
- <!-- tsp start -->
-      <div style="text-align: center;margin-top: -100px; margin-bottom: 130px;">
-        <h2>Problema de Agente Viajero - TSP</h2>
-        {% csrf_token %}
-        <h3>Seleccione las ciudades que NO participarán del recorrido </h3>
-      </div>
+ <!-- shortest path start -->
+    <div style="text-align: center;margin-top: -100px; margin-bottom: 130px;">
+        <h2>Camino Económico</h2>
+        <h3>Seleccione ciudad de origen y a continuacion la ciudad de destino..</h3>
+    </div>
     <div>
     <form method="POST" action="result/">
       {% csrf_token %}
@@ -241,5 +239,5 @@
         </div>
     </div>
     </div>
-      <!-- tsp end -->
+      <!-- shortest path end -->
 {% endblock %}

@@ -1,0 +1,61 @@
+<style>
+  h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.table-bordered {
+  border: 1px solid #ddd !important;
+}
+
+table caption {
+  padding: .5em 0;
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    display: none;
+  }
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+</style>
+
+{% extends 'base.html' %}
+    
+
+{% block content %}
+
+<!-- result start -->
+    <div  style="margin-top: -100px;">
+    <div class="container" >
+      <div style="float: center;">
+        <h3 style="font-size: 30px;">Problema de Agente Viajero -TSP</h3><br>
+      </div>
+        <h4>{{ resultado }}</h2><br>
+     	  <table class="table table-bordered">
+          <thead>
+            <tr>
+               {% for ciudad in ciudades %}
+                   <th>{{ ciudad }}</th>
+               {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+              {% for row in matriz %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+              {% endfor %}
+         <tbody>
+        </table>
+    </div>
+    </div>
+    <!-- result end -->
+{% endblock %}

@@ -19,7 +19,11 @@ from routingApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),
-    path('result/', views.travlingSales),
-    path('tsp.html', views.tsp),
+    path('', views.home, name="home"),   
+    path('about_us/', views.about_us, name="about_us"),
+    path('our_team/', views.our_team, name="our_team"),
+    path('tsp/', views.tsp, name="tsp"),
+    path('tsp/result/', views.travlingSales),
+    path('shortest_path/', views.shortest_path, name="shortest_path"),
+    path('shortest_path/result/',views.spresult)
 ]

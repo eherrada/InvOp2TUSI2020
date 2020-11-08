@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+ <!-- shortest path start -->
+    <div style="text-align: center;margin-top: -100px; margin-bottom: 130px;">
+        <h2>Camino Económico</h2>
+        <h3>Seleccione ciudad de origen y a continuacion la ciudad de destino</h3>
+    </div>
+    <div>
+    <form method="POST" action="result/">
+      {% csrf_token %}
+
+    <div class="container">
+
+
+      <div class="row templatemorow">
+       
+
+    <div class="hex col-sm-6">
+      <div>
+          <div class="hexagon hexagon2 gallery-item">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2" style="background-image: url('{% static 'images/gallery/2.jpg' %}');">
+                <br><br><br>
+                <h1 style="text-align: center;">CHASCOMUS</h1>
+                <div class="overlay">
+                <a><input type="checkbox" name="city" value="2" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="hex col-sm-6  templatemo-hex-top2">
+      <div>
+          <div class="hexagon hexagon2 gallery-item">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2" style="background-image: url('{% static 'images/gallery/3.jpg' %}');">
+                <br><br><br>
+                  <h1>SAMBOROMBÓN</h1>
+                <div class="overlay">
+                 <a><input type="checkbox" name="city" value="3" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="hex col-sm-6  templatemo-hex-top3">
+      <div>
+          <div class="hexagon hexagon2 gallery-item">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2" style="background-image: url('{% static 'images/gallery/4.jpg' %}');">
+                <br><br><br>
+                  <h1>CASTELLI</h1>
+                <div class="overlay">
+                 <a><input type="checkbox" name="city" value="4" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="hex col-sm-6  templatemo-hex-top3">
+      <div>
+          <div class="hexagon hexagon2 gallery-item">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2" style="background-image: url('{% static 'images/gallery/5.jpg' %}');">
+                <br><br><br>
+                  <h1>TANDIL</h1>
+                  <div class="overlay">
+                 <a><input type="checkbox" name="city" value="5" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="hex col-sm-6  templatemo-hex-top3">
+      <div>
+          <div class="hexagon hexagon2 gallery-item">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2" style="background-image: url('{% static 'images/gallery/6.jpg' %}');">
+                <br><br><br>
+                  <h1>BALCARCE</h1>
+                  <div class="overlay">
+                 <a><input type="checkbox" name="city" value="6" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+         <div class="hex col-sm-6 hex-offset templatemo-hex-top1 templatemo-hex-top2">
+      <div>
+          <div class="hexagon hexagon2 gallery-item">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2" style="background-image: url('{% static 'images/gallery/7.jpg' %}');">
+                <br><br><br>
+                  <h1>MAIPÚ</h1>
+                  <div class="overlay">
+                 <a><input type="checkbox" name="city" value="7" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+     <div class="hex col-sm-6 templatemo-hex-top1 templatemo-hex-top3">
+      <div>
+          <div class="hexagon hexagon2 gallery-item">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2" style="background-image: url('{% static 'images/gallery/8.jpg' %}');">
+                <br><br><br>
+                  <h1>MAR DEL PLATA</h1>
+                  <div class="overlay">
+                 <a><input type="checkbox" name="city" value="8" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+      <div class="hex col-sm-6 templatemo-hex-top1  templatemo-hex-top3">
+        <div>
+          <div class="hexagon hexagon2 gallery-item">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2" style="background-image: url('{% static 'images/gallery/1.jpg' %}');">
+                <br><br><br>
+                  <h1>LA PLATA</h1>
+                  <div class="overlay">
+                 <a><input type="checkbox" name="city" value="1" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+  </div>
+    <div class="container">
+      <div class="row">
+          <div class="templatemo_loadmore">
+          <button class="gallery_more" type="submit"  value="Submit"id="button">Generar Ruta</button>
+        </form>
+            </a>
+            </div>
+        </div>
+    </div>
+    </div>
+      <!-- shortest path end -->
+{% endblock %}

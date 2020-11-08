@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- service start -->
+ <div style="text-align: center;margin-top: -100px; margin-bottom: 100px;">
+        <h5>Este sistema fue desarrollado para aplicar la teoría de redes, frente a los escenarios de Agente Viajero y Camino Económico </h5>
+</div>
+ 
+    <div class="container">
+     <!-- NO ENCONTRE MANERA DE CENTRAR LOS DIVS, SIMPLEMENTE PUSE UN MARGIN LEFT POR AHORA
+     LO VAMOS MODIFICANDO SEGUN LA PANTALLA DE LA PERSONA QUE VA A GRABAR EL VIDEO PARA Q QUEDE BIEN -->
+      
+    	<div class="row templatemo_servicerow templatemorow" >
+              <div class="templatemo_hexservices col-sm-6" style="margin-left: 320px;margin-right: 30px">
+            	<div class="blok text-center">
+                  <div class="hexagon-a">
+                     <a class="hlinktop" href="{% url 'tsp' %}">
+                     	 <div class="hexa-a">
+                         	<div class="hcontainer-a">
+                          <div class="vertical-align-a">
+                            <span class="texts-a"><i class="fa fa-briefcase"></i></span>
+                          </div>
+                        </div>
+                         </div>
+                     </a>
+                  </div>  
+                     <div class="hexagonservices">
+                     	<a class="hlinkbott" href="#">
+                        <div class="hexa">
+                      	  <div class="hcontainer">
+                          <div class="vertical-align">
+                          <span class="texts"></span>
+                          </div>
+                        </div>
+                      </div>
+                        </a>
+                     </div>
+                     </div>
+                     <div class="templatemo_servicetext" style="text-align: center;">
+                    <h2 style="font-size: 20px;">Problema de Agente Viajero - TSP</h2>
+                    <p>El problema del agente viajero, (TSP) como los demás de redes, introduce un conjunto de nodos y
+                    arcos que conectan todos los nodos. La finalidad es encontrar la forma de realizar una gira
+                    completa que conecte todos los nodos visitando sólo una vez cada nodo y minimizar o maximizar
+                    la distancia de la gira total. </p>
+                    
+                    </div>
+              </div>
+              
+              <div class="templatemo_hexservices col-sm-6">
+            	<div class="blok text-center">
+                  <div class="hexagon-a">
+                     <a class="hlinktop" href="{% url 'shortest_path' %}">
+                     	 <div class="hexa-a">
+                         	<div class="hcontainer-a">
+                          <div class="vertical-align-a">
+                            <span class="texts-a"><i class="fa fa-trophy"></i></span>
+                          </div>
+                        </div>
+                         </div>
+                     </a>
+                  </div>  
+                     <div class="hexagonservices">
+                     	<a class="hlinkbott" href="#">
+                        <div class="hexa">
+                      	  <div class="hcontainer">
+                          <div class="vertical-align">
+                          <span class="texts"></span>
+                          </div>
+                        </div>
+                      </div>
+                        </a>
+                     </div>
+                     </div>
+                     <div class="templatemo_servicetext" style="text-align: center;">
+                    <h2 style="font-size: 20px;">Camino Económico</h2>
+                    <p>Se utiliza para encontrar una ruta o camino óptimo entre un nodo fuente y un nodo destino, los
+                    cuales están enlazados a través de una red con arcos que poseen un cierto atributo, el cual puede
+                    ser costo, distancia, tiempo, etc.</p>
+                    
+                    </div>
+              </div>
+              
+        
+ 
+    </div>
+    </div>
+    <!-- service end -->
+{% endblock %}

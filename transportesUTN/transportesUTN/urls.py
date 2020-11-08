@@ -25,5 +25,5 @@ urlpatterns = [
     path('tsp/', views.tsp, name="tsp"),
     path('tsp/result/', views.travlingSales),
     path('shortest_path/', views.shortest_path, name="shortest_path"),
-    # path('shortest_path/result', views.),
+    path('shortest_path/result/',views.spresult)
 ]

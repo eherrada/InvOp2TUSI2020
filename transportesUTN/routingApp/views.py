@@ -4,6 +4,8 @@ from ortools.constraint_solver import routing_enums_pb2
 from ortools.constraint_solver import pywrapcp
 from django.views.decorators.csrf import csrf_exempt
 from .forms import cities_form
+from math import inf
+from itertools import product
 
 def home(request):
     return render(request, 'services.html')
@@ -133,3 +135,53 @@ def print_solution(manager, routing, solution, city_array):
     plan_output += ' La Plata\n'
     plan_output += ' ||  Distancia Recorrida: {} Kms\n'.format(route_distance)
     return plan_output
+
+def floyd_warshall(n, edge):
+    response=[]
+    rn = range(n)
+    dist = [[inf] * n for i in rn]
+    nxt = [[0] * n for i in rn]
+    for i in rn:
+        dist[i][i] = 0
+    for u, v, w in edge:
+        dist[u - 1][v - 1] = w
+        nxt[u - 1][v - 1] = v - 1
+    for k, i, j in product(rn, repeat=3):
+        sum_ik_kj = dist[i][k] + dist[k][j]
+        if dist[i][j] > sum_ik_kj:
+            dist[i][j] = sum_ik_kj
+            nxt[i][j] = nxt[i][k]
+    
+    for i, j in product(rn, repeat=2):
+        if i != j:
+            path = [i]
+            while path[-1] != j:
+                path.append(nxt[path[-1]][j])
+            response.append("%3d → %3d|%4d|%s"
+                  % (i + 1, j + 1, dist[i][j],
+                     ' → '.join(str(p + 1) for p in path)))
+    return response
+
+def spresult(request):
+    
+    city_list = request.POST.getlist('city')
+    rute = "  "+city_list[0] +" →   "+city_list[1]
+    
+    rta = floyd_warshall(8, [[1, 3, 48], [2, 1, 81], [2, 3, 52], [4, 2, 65], [3, 5, 303], [5, 6, 108],[5, 7, 152] ,[6, 8, 74],[7, 4, 96],[8, 7, 135]])
+    temp = []
+    for i in rta:
+        temp.append(i.split("|"))
+    
+    for i in temp:
+        if i[0] == rute:
+            cityString = i[0].replace("1","La Plata").replace("2","Chascomus").replace("3","Samboronbon").replace("4","Castelli").replace("5","Tandil").replace("6","Balcarce").replace("7","Maipu").replace("8","Mar del Plata").replace("→","hasta")
+            km = i[1]
+            direction = i[2].replace("1","La Plata").replace("2","Chascomus").replace("3","Samboronbon").replace("4","Castelli").replace("5","Tandil").replace("6","Balcarce").replace("7","Maipu").replace("8","Mar del Plata")
+            
+            return render(request, 'spresult.html',{'ciudades': cityString,'kms':km,'ruta':direction})
+
+
+    
+
+
+    

@@ -77,6 +77,8 @@ def travlingSales(request):
         return render(request, 'results.html', {'resultado': resultado, 'matriz': data['distance_matrix'],
                                                'ciudades': city_array})
 
+
+
 def create_data_model():
     """Stores the data for the problem."""
     data = {}
@@ -167,7 +169,7 @@ def spresult(request):
     city_list = request.POST.getlist('city')
     rute = "  "+city_list[0] +" →   "+city_list[1]
     
-    rta = floyd_warshall(8, [[1, 3, 48], [2, 1, 81], [2, 3, 52], [4, 2, 65], [3, 5, 303], [5, 6, 108],[5, 7, 152] ,[6, 8, 74],[7, 4, 96],[8, 7, 135]])
+    rta = floyd_warshall(8, [[1, 3, 48], [3, 1, 48], [1, 2, 81],[2, 1, 81], [2, 3, 52], [3, 2, 52], [4, 2, 65], [2, 4, 65], [3, 5, 303], [5, 3, 303], [5, 6, 108], [6, 5, 108], [5, 7, 152], [7, 5, 152], [6, 8, 74], [8, 6, 74], [7, 4, 96], [4, 7, 96], [8, 7, 135], [7, 8, 135]])
     temp = []
     for i in rta:
         temp.append(i.split("|"))
@@ -181,7 +183,5 @@ def spresult(request):
             return render(request, 'spresult.html',{'ciudades': cityString,'kms':km,'ruta':direction})
 
 
-    
 
 
-    

@@ -26,8 +26,7 @@ table caption {
 </style>
 
 {% extends 'base.html' %}
-    
-
+{% load static %}
 {% block content %}
 
 <!-- result start -->
@@ -36,11 +35,21 @@ table caption {
       <div style="float: center;">
         <h3 style="font-size: 30px;">Problema de Camino Economico</h3><br>
       </div>
-        <h4>Ruta</h4><br>
-        <h4>Desde {{ ciudades }}</h4><br>
-        <h4>Distancia {{ kms }} kms</h4><br>
-        <h4>Comino Economico </h4><br>
-        <h4>{{ ruta }}</h4>
+        <div style="display: flex">
+          <div>
+          <h4>Ruta</h4><br>
+          <h4>Desde {{ ciudades }}</h4><br>
+          <h4>Distancia {{ kms }} kms</h4><br>
+          <h4>Camino Economico </h4><br>
+          <h4>{{ ruta }}</h4>
+          </div>
+          <div>
+          <img src="{% static 'images/diagrama.jpg' %}" alt="Diagrama" style="margin-left: 250px; height: 300px; width: 500px;">
+          </div>
+        </div>
+     
+        
+      
      	  
     </div>
     </div>
